@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { triggerZapierWebhook } from "@/lib/webhook";
 
 interface QuizQuestion {
   id: number;
@@ -160,12 +161,32 @@ const Quiz = () => {
     }
   };
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     toast({
       title: "Recommendations sent!",
       description: "Check your email for your complete AI tools report."
+    });
+    
+    // Trigger Zapier webhook with quiz completion data
+    const recommendations = generateRecommendations();
+    await triggerZapierWebhook({
+      action_type: 'quiz_completion',
+      email,
+      timestamp: new Date().toISOString(),
+      source_url: window.location.href,
+      user_agent: navigator.userAgent,
+      lead_data: {
+        quiz_answers: answers,
+        business_size: answers.question1,
+        time_drain: answers.question2,
+        budget_range: answers.question3,
+        tech_level: answers.question4,
+        priority: answers.question5,
+        recommendations_count: recommendations.length,
+        tools_recommended: recommendations.map(r => r.tool)
+      }
     });
     
     // Reset quiz

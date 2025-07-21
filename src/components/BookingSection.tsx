@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { triggerZapierWebhook } from "@/lib/webhook";
 
 const BookingSection = () => {
   const [formData, setFormData] = useState({
@@ -47,7 +48,7 @@ const BookingSection = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!captchaVerified) {
@@ -62,6 +63,25 @@ const BookingSection = () => {
     toast({
       title: "Booking Received!",
       description: "We'll send you a calendar invite within 2 hours."
+    });
+    
+    // Trigger Zapier webhook for booking confirmation
+    await triggerZapierWebhook({
+      action_type: 'booking_confirmation',
+      email: formData.email,
+      timestamp: new Date().toISOString(),
+      source_url: window.location.href,
+      user_agent: navigator.userAgent,
+      lead_data: {
+        name: formData.name,
+        phone: formData.phone,
+        company: formData.company,
+        preferred_time: formData.time,
+        business_challenge: formData.challenge,
+        consultation_type: 'Dubai_AI_Strategy_Session',
+        investment: 'AED_356',
+        booking_source: 'website_form'
+      }
     });
     
     setIsSubmitted(true);

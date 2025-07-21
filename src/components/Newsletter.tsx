@@ -1,18 +1,32 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { triggerZapierWebhook } from "@/lib/webhook";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     toast({
       title: "Welcome to the community!",
       description: "You'll receive weekly AI insights for Dubai businesses."
+    });
+    
+    // Trigger Zapier webhook
+    await triggerZapierWebhook({
+      action_type: 'newsletter_subscription',
+      email,
+      timestamp: new Date().toISOString(),
+      source_url: window.location.href,
+      user_agent: navigator.userAgent,
+      lead_data: {
+        subscriber_count: '847_UAE',
+        subscription_source: 'newsletter_section'
+      }
     });
     
     setIsSubmitted(true);

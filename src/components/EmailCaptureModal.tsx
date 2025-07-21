@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { X, Mail, Gift } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { triggerZapierWebhook } from "@/lib/webhook";
 
 interface EmailCaptureModalProps {
   isOpen: boolean;
@@ -15,7 +16,7 @@ const EmailCaptureModal = ({ isOpen, onClose }: EmailCaptureModalProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email) {
@@ -30,6 +31,19 @@ const EmailCaptureModal = ({ isOpen, onClose }: EmailCaptureModalProps) => {
     toast({
       title: "Success! 🎉",
       description: "Your AI tools guide is on its way to your inbox!"
+    });
+    
+    // Trigger Zapier webhook
+    await triggerZapierWebhook({
+      action_type: 'email_capture',
+      email,
+      timestamp: new Date().toISOString(),
+      source_url: window.location.href,
+      user_agent: navigator.userAgent,
+      lead_data: {
+        lead_magnet: 'AI_tools_guide',
+        modal_trigger: 'popup_after_5_seconds'
+      }
     });
     
     setIsSubmitted(true);
