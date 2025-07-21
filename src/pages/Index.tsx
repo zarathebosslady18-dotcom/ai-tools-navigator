@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
@@ -8,8 +9,19 @@ import ServicesSection from "@/components/ServicesSection";
 import BookingSection from "@/components/BookingSection";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
+import EmailCaptureModal from "@/components/EmailCaptureModal";
 
 const Index = () => {
+  const [showEmailCapture, setShowEmailCapture] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowEmailCapture(true);
+    }, 5000); // Show after 5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -22,6 +34,11 @@ const Index = () => {
       <BookingSection />
       <Newsletter />
       <Footer />
+      
+      <EmailCaptureModal 
+        isOpen={showEmailCapture} 
+        onClose={() => setShowEmailCapture(false)} 
+      />
     </div>
   );
 };
