@@ -53,7 +53,7 @@ const MasterclassTeaser = () => {
             </div>
             <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-3 py-1 rounded-full text-sm font-medium animate-pulse">
               <Users className="w-4 h-4" />
-              Early Bird Ends Aug 1st
+              Early Bird Ends Aug 6th
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@ const MasterclassTeaser = () => {
             </Button>
           </Link>
           <p className="text-sm text-muted-foreground mt-4">
-            ⚡ Early Bird Special: Save AED 3,000 - Ends August 1st!
+            ⚡ Early Bird Special: Save AED 3,000 - Ends August 6th!
           </p>
         </div>
       </div>

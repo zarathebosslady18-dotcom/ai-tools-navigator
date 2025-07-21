@@ -28,9 +28,9 @@ const Masterclass = () => {
   });
   const { toast } = useToast();
 
-  // Countdown to early bird deadline (August 1st, 2024)
+  // Countdown to early bird deadline (August 6th, 2024)
   useEffect(() => {
-    const targetDate = new Date('2024-08-01T23:59:59').getTime();
+    const targetDate = new Date('2024-08-06T23:59:59').getTime();
     
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -435,11 +435,11 @@ const Masterclass = () => {
                             <div className="text-sm text-destructive font-semibold">60% OFF</div>
                           </div>
                         </div>
-                        <p className="text-sm text-destructive font-medium">🔥 Early Bird Special - Ends Aug 1st!</p>
+                        <p className="text-sm text-destructive font-medium">🔥 Early Bird Special - Ends Aug 6th!</p>
                       </div>
 
                       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-3 mb-4">
-                        <p className="text-sm font-semibold">Regular Price After Aug 1st: AED 4,999</p>
+                        <p className="text-sm font-semibold">Regular Price After Aug 6th: AED 4,999</p>
                         <p className="text-xs text-muted-foreground">Save AED 3,000 by registering now!</p>
                       </div>
                     </div>
