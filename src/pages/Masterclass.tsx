@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, Clock, Users, Award, CheckCircle, Star, ArrowRight, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, Users, Award, CheckCircle, Star, ArrowRight, ArrowLeft, Play, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,6 +8,12 @@ import { triggerZapierWebhook } from "@/lib/webhook";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Masterclass = () => {
   const [email, setEmail] = useState("");
@@ -79,11 +85,90 @@ const Masterclass = () => {
 
   const targetAudience = [
     "Business Owners & Entrepreneurs",
-    "Marketing & Growth Teams", 
-    "Operations Managers",
-    "C-Suite Executives",
-    "Freelancers & Consultants",
-    "Tech Team Leaders"
+    "Marketing & Growth Professionals", 
+    "Sales Teams",
+    "Customer Support Specialists",
+    "Business Leaders & Entrepreneurs",
+    "Product Managers",
+    "HR & Talent Professionals",
+    "Operations & Logistics Teams",
+    "Designers & Creatives",
+    "Tech Enthusiasts & Developers",
+    "Finance & Accounting Professionals"
+  ];
+
+  const testimonials = [
+    {
+      name: "Hemant Walia",
+      title: "Founder",
+      company: "Ace Square Realty",
+      quote: "This masterclass transformed how we approach real estate with AI. The practical tools we learned are already saving us hours daily.",
+      avatar: "👨‍💼"
+    },
+    {
+      name: "Aditya Telidevara", 
+      title: "Senior Manager AI Tech Operations",
+      company: "Seismic Inc",
+      quote: "Incredible depth of knowledge. Miss Akiru breaks down complex AI concepts into actionable business strategies.",
+      avatar: "👨‍💻"
+    },
+    {
+      name: "Dr. Neelu",
+      title: "Assistant Professor",
+      company: "IIIT Lucknow",
+      quote: "Perfect blend of theory and practice. My students are now implementing these AI tools in their projects.",
+      avatar: "👩‍🏫"
+    },
+    {
+      name: "Anshita Sharma",
+      title: "Deputy General Manager", 
+      company: "HCL",
+      quote: "The ROI we've seen from implementing these AI strategies has been phenomenal. Worth every dirham!",
+      avatar: "👩‍💼"
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Who Is This Masterclass For?",
+      answer: "This masterclass is designed for Dubai professionals across all industries - from business owners and entrepreneurs to marketing teams, operations managers, and C-suite executives. No prior AI knowledge is required."
+    },
+    {
+      question: "What Will I Learn In The Masterclass?", 
+      answer: "You'll master 25+ AI tools, learn to build automated workflows, create AI-powered content, develop your personalized AI business roadmap, and get hands-on experience with the latest AI technologies for business transformation."
+    },
+    {
+      question: "How Is The Masterclass Structured?",
+      answer: "The masterclass spans 2 days (Dec 15 & 22) from 9 AM to 5 PM GST. Day 1 focuses on AI foundations and essential tools. Day 2 covers advanced integration and your personalized AI implementation plan."
+    },
+    {
+      question: "What Resources Will I Receive?",
+      answer: "You'll get access to 25+ premium AI tools, your personalized 90-day AI roadmap, 1-on-1 consultation with Miss Akiru, exclusive Dubai AI community access, certificate of completion, and 3 months of follow-up support."
+    },
+    {
+      question: "What Is The Duration Of The Masterclass?",
+      answer: "The masterclass is a comprehensive 2-day program (16 hours total) spread across two weekends to ensure you can implement learnings between sessions."
+    },
+    {
+      question: "How Will This Masterclass Impact My Business Growth?",
+      answer: "Previous participants have reported 40-60% increase in productivity, significant cost savings through automation, improved customer engagement, and faster decision-making processes within 90 days of implementation."
+    },
+    {
+      question: "Will I Have Access To Trainers For Guidance?",
+      answer: "Yes! You'll have direct access to Miss Akiru during the masterclass, a 1-on-1 consultation session, and 3 months of follow-up support through our exclusive community."
+    },
+    {
+      question: "What If I Miss A Session?",
+      answer: "All sessions are recorded and available for 6 months. However, we highly recommend attending live for the interactive elements and networking opportunities."
+    },
+    {
+      question: "Will I Get A Certificate?",
+      answer: "Yes, you'll receive an official AI Business Transformation certificate endorsed by The Economic Times, validating your expertise in AI business applications."
+    },
+    {
+      question: "Do I Need Technical AI Skills To Join?",
+      answer: "Not at all! This masterclass is designed for business professionals with no technical background. We focus on practical business applications rather than technical implementation."
+    }
   ];
 
   return (
@@ -257,21 +342,21 @@ const Masterclass = () => {
                 </div>
               </div>
 
-              {/* Who It's For */}
-              <div>
-                <h2 className="text-3xl font-bold mb-4">Who It's For</h2>
-                <p className="text-muted-foreground mb-6">Perfect for Dubai Professionals Ready to Lead with AI</p>
-                <div className="grid md:grid-cols-3 gap-4">
-                  {targetAudience.map((audience, index) => (
-                    <div 
-                      key={index}
-                      className="px-4 py-3 bg-secondary/10 rounded-lg text-center font-medium"
-                    >
-                      {audience}
-                    </div>
-                  ))}
-                </div>
+            {/* Who It's For */}
+            <div>
+              <h2 className="text-3xl font-bold mb-4">Who It&apos;s For</h2>
+              <p className="text-muted-foreground mb-6">Perfect for Decision-Makers Across Functions</p>
+              <div className="grid md:grid-cols-3 gap-3">
+                {targetAudience.map((audience, index) => (
+                  <div 
+                    key={index}
+                    className="px-4 py-3 bg-secondary/10 rounded-lg text-center font-medium text-sm border border-secondary/20 hover:bg-secondary/20 transition-colors"
+                  >
+                    {audience}
+                  </div>
+                ))}
               </div>
+            </div>
             </div>
 
             {/* Right Column - Registration */}
@@ -358,8 +443,104 @@ const Masterclass = () => {
             </div>
           </div>
 
-          {/* Instructor Section */}
-          <div className="mt-20 text-center">
+        {/* Success Stories Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">
+              Real Stories. Real Impact.{" "}
+              <span className="text-primary">Real Success.</span>
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <div className="text-5xl font-bold text-primary mb-2">92%</div>
+              <p className="text-muted-foreground">Rated it extremely valuable</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-secondary mb-2">4.6/5</div>
+              <p className="text-muted-foreground">Average rating from 2000+ professionals</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-accent mb-2">1 in 3</div>
+              <p className="text-muted-foreground">Applied AI at work in 2 weeks</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">
+              From Learners to{" "}
+              <span className="text-primary">AI Leaders</span>
+            </h2>
+            <p className="text-muted-foreground">
+              From marketers to HR managers to founders — this class is helping people unlock their next level with AI
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="p-6">
+                <CardContent className="p-0">
+                  {/* Video Placeholder */}
+                  <div className="aspect-video bg-black rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/40" />
+                    <Play className="w-16 h-16 text-white opacity-80" />
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center text-2xl">
+                      {testimonial.avatar}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg">{testimonial.name}</h4>
+                      <p className="text-muted-foreground text-sm mb-2">
+                        {testimonial.title}
+                      </p>
+                      <p className="text-muted-foreground text-sm mb-3">
+                        {testimonial.company}
+                      </p>
+                      <p className="text-sm italic">
+                        &quot;{testimonial.quote}&quot;
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold">Got Questions?</h2>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="border border-border rounded-lg px-6"
+                >
+                  <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+
+        {/* Instructor Section */}
+        <div className="mt-20 text-center">
             <Card className="max-w-4xl mx-auto bg-gradient-to-r from-primary/5 to-secondary/5">
               <CardContent className="p-12">
                 <h2 className="text-3xl font-bold mb-6">Meet Your AI Instructor</h2>
