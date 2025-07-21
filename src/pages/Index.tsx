@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
+import MasterclassTeaser from "@/components/MasterclassTeaser";
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
@@ -8,8 +9,6 @@ import Quiz from "@/components/Quiz";
 import SavingsCalculator from "@/components/SavingsCalculator";
 import ServicesSection from "@/components/ServicesSection";
 import BookingSection from "@/components/BookingSection";
-import AIMasterclass from "@/components/AIMasterclass";
-
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import EmailCaptureModal from "@/components/EmailCaptureModal";
@@ -28,6 +27,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
+      <MasterclassTeaser />
       <Hero />
       <ProblemSection />
       <SolutionSection />
@@ -35,9 +35,7 @@ const Index = () => {
       <Quiz />
       <SavingsCalculator />
       <ServicesSection />
-      <AIMasterclass />
       <BookingSection />
-      
       <Newsletter />
       <Footer />
       
