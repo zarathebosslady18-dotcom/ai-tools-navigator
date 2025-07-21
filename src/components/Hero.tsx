@@ -13,28 +13,28 @@ const Hero = () => {
       <div className="container mx-auto px-6 text-center text-white relative z-10 pt-20">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Dubai's <span className="text-accent animate-glow">#1</span> AI Tools
+            Dubai's <span className="text-accent animate-glow">#1</span> AI Business
             <br />
             <span className="bg-gradient-to-r from-accent to-white bg-clip-text text-transparent">
-              Consultant
+              Transformation Expert
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
-            Get the perfect AI business stack for your Dubai company in 3 minutes. 
+            Get personalized AI tools consultation OR master 25+ AI tools in our exclusive masterclass. 
             Join <span className="font-semibold text-accent">500+</span> UAE businesses saving 
-            <span className="font-semibold text-accent"> AED 5,000+</span> monthly on AI subscriptions.
+            <span className="font-semibold text-accent"> AED 5,000+</span> monthly with AI.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button 
               size="xl" 
               variant="hero"
               className="group"
-              onClick={() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <span className="mr-2">🎯</span>
-              Take Free Assessment
+              Book AI Consultation
               <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
             </Button>
             
@@ -42,10 +42,22 @@ const Hero = () => {
               size="xl" 
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-primary"
-              onClick={() => document.getElementById('lead-magnet')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('masterclass-info')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <span className="mr-2">🎓</span>
+              View AI Masterclass
+            </Button>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              size="lg" 
+              variant="secondary"
+              className="group"
+              onClick={() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <span className="mr-2">📋</span>
-              Get Free Dubai AI Guide
+              Take Free AI Assessment
             </Button>
           </div>
 

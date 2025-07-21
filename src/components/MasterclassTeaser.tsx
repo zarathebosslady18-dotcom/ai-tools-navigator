@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const MasterclassTeaser = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+    <section id="masterclass-info" className="py-20 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       <div className="container mx-auto px-4">
         {/* Header Badge */}
         <div className="text-center mb-8">
