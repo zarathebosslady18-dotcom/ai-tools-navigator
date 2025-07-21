@@ -113,75 +113,13 @@ const BookingSection = () => {
               <div className="bg-muted/50 p-8 rounded-2xl">
                 <h4 className="text-xl font-bold text-center text-foreground mb-6">Book Your Session</h4>
                 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Full Name *"
-                    required
-                    className="w-full px-4 py-3 border-2 border-border rounded-xl focus:border-primary focus:outline-none transition-colors bg-background"
-                  />
-                  
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email Address *"
-                    required
-                    className="w-full px-4 py-3 border-2 border-border rounded-xl focus:border-primary focus:outline-none transition-colors bg-background"
-                  />
-                  
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="WhatsApp Number (with country code)"
-                    className="w-full px-4 py-3 border-2 border-border rounded-xl focus:border-primary focus:outline-none transition-colors bg-background"
-                  />
-                  
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    placeholder="Company Name"
-                    className="w-full px-4 py-3 border-2 border-border rounded-xl focus:border-primary focus:outline-none transition-colors bg-background"
-                  />
-                  
-                  <select
-                    name="time"
-                    value={formData.time}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-border rounded-xl focus:border-primary focus:outline-none transition-colors bg-background"
-                  >
-                    <option value="">Select Preferred Time *</option>
-                    <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
-                    <option value="afternoon">Afternoon (12:00 PM - 3:00 PM)</option>
-                    <option value="evening">Evening (3:00 PM - 6:00 PM)</option>
-                  </select>
-                  
-                  <textarea
-                    name="challenge"
-                    value={formData.challenge}
-                    onChange={handleInputChange}
-                    placeholder="What's your biggest AI challenge? (Optional)"
-                    rows={3}
-                    className="w-full px-4 py-3 border-2 border-border rounded-xl focus:border-primary focus:outline-none transition-colors bg-background resize-none"
-                  />
-                  
-                  <Button type="submit" size="lg" variant="hero" className="w-full">
-                    🚀 Book My AED 356 Strategy Session
-                  </Button>
-                  
-                  <p className="text-xs text-center text-muted-foreground">
-                    We'll send you a calendar invite within 2 hours
-                  </p>
-                </form>
+                <div className="calendly-inline-widget rounded-xl overflow-hidden" 
+                     data-url="https://calendly.com/zarathebosslady18?background_color=0c0b0b&primary_color=42ec6a" 
+                     style={{minWidth:'320px', height:'700px'}}></div>
+                
+                <p className="text-xs text-center text-muted-foreground mt-4">
+                  Select your preferred time slot above
+                </p>
               </div>
             </div>
           </div>
