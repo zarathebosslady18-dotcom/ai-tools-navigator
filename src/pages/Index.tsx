@@ -8,6 +8,7 @@ import Quiz from "@/components/Quiz";
 import SavingsCalculator from "@/components/SavingsCalculator";
 import ServicesSection from "@/components/ServicesSection";
 import BookingSection from "@/components/BookingSection";
+import AIMasterclass from "@/components/AIMasterclass";
 
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
@@ -34,6 +35,7 @@ const Index = () => {
       <Quiz />
       <SavingsCalculator />
       <ServicesSection />
+      <AIMasterclass />
       <BookingSection />
       
       <Newsletter />
