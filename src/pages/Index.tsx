@@ -5,6 +5,7 @@ import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
 import LeadMagnet from "@/components/LeadMagnet";
 import Quiz from "@/components/Quiz";
+import SavingsCalculator from "@/components/SavingsCalculator";
 import ServicesSection from "@/components/ServicesSection";
 import BookingSection from "@/components/BookingSection";
 
@@ -31,6 +32,7 @@ const Index = () => {
       <SolutionSection />
       <LeadMagnet />
       <Quiz />
+      <SavingsCalculator />
       <ServicesSection />
       <BookingSection />
       

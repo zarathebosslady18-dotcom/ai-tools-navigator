@@ -1,7 +1,7 @@
 
 interface WebhookData {
   timestamp: string;
-  action_type: 'email_capture' | 'newsletter_subscription' | 'quiz_completion' | 'booking_confirmation';
+  action_type: 'email_capture' | 'newsletter_subscription' | 'quiz_completion' | 'booking_confirmation' | 'savings_calculator_conversion';
   email?: string;
   source_url: string;
   user_agent: string;
