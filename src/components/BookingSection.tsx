@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
 const BookingSection = () => {
@@ -12,10 +13,51 @@ const BookingSection = () => {
     challenge: ""
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [captchaQuestion, setCaptchaQuestion] = useState({ num1: 0, num2: 0, answer: 0 });
+  const [captchaInput, setCaptchaInput] = useState("");
+  const [captchaVerified, setCaptchaVerified] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
+
+  const generateCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    setCaptchaQuestion({ num1, num2, answer: num1 + num2 });
+    setCaptchaInput("");
+    setCaptchaVerified(false);
+  };
+
+  const verifyCaptcha = () => {
+    if (parseInt(captchaInput) === captchaQuestion.answer) {
+      setCaptchaVerified(true);
+      toast({
+        title: "Captcha Verified!",
+        description: "You can now proceed with booking."
+      });
+    } else {
+      toast({
+        title: "Incorrect Answer",
+        description: "Please try again.",
+        variant: "destructive"
+      });
+      generateCaptcha();
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!captchaVerified) {
+      toast({
+        title: "Please complete the captcha first",
+        description: "Verify you're human before booking.",
+        variant: "destructive"
+      });
+      return;
+    }
     
     toast({
       title: "Booking Received!",
@@ -56,7 +98,16 @@ const BookingSection = () => {
               </div>
               <div className="bg-primary/10 p-4 rounded-2xl">
                 <p className="text-sm text-foreground">
-                  <strong>Can't wait?</strong> WhatsApp us at +971-XX-XXX-XXXX for immediate assistance
+                  <strong>Can't wait?</strong> WhatsApp us at{" "}
+                  <a 
+                    href="https://wa.me/971547783323?text=Hi%2C%20I%20just%20booked%20a%20session%20and%20need%20assistance" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    +971 54 778 3323
+                  </a>{" "}
+                  for immediate assistance
                 </p>
               </div>
             </div>
@@ -114,13 +165,50 @@ const BookingSection = () => {
               <div className="bg-muted/50 p-8 rounded-2xl">
                 <h4 className="text-xl font-bold text-center text-foreground mb-6">Book Your Session</h4>
                 
-                <div className="calendly-inline-widget rounded-xl overflow-hidden" 
-                     data-url="https://calendly.com/zarathebosslady18?background_color=0c0b0b&primary_color=42ec6a" 
-                     style={{minWidth:'320px', height:'700px'}}></div>
+                {/* Captcha Section */}
+                {!captchaVerified && (
+                  <div className="bg-background p-6 rounded-xl border border-border mb-6">
+                    <h5 className="font-semibold mb-4 text-center">Verify you're human</h5>
+                    <div className="flex items-center gap-3 justify-center mb-4">
+                      <span className="text-lg font-bold">{captchaQuestion.num1} + {captchaQuestion.num2} = ?</span>
+                      <Input
+                        type="number"
+                        value={captchaInput}
+                        onChange={(e) => setCaptchaInput(e.target.value)}
+                        placeholder="Answer"
+                        className="w-20 text-center"
+                      />
+                      <Button onClick={verifyCaptcha} size="sm">
+                        Verify
+                      </Button>
+                    </div>
+                  </div>
+                )}
                 
-                <p className="text-xs text-center text-muted-foreground mt-4">
-                  Select your preferred time slot above
-                </p>
+                {captchaVerified && (
+                  <>
+                    <div className="calendly-inline-widget rounded-xl overflow-hidden" 
+                         data-url="https://calendly.com/zarathebosslady18?background_color=0c0b0b&primary_color=42ec6a" 
+                         style={{minWidth:'320px', height:'700px'}}></div>
+                    
+                    <div className="text-center mt-4 space-y-2">
+                      <p className="text-xs text-muted-foreground">
+                        Select your preferred time slot above
+                      </p>
+                      <p className="text-sm">
+                        <strong>Questions?</strong> WhatsApp:{" "}
+                        <a 
+                          href="https://wa.me/971547783323?text=Hi%2C%20I%20have%20questions%20about%20booking%20a%20session" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-primary hover:underline font-semibold"
+                        >
+                          +971 54 778 3323
+                        </a>
+                      </p>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>

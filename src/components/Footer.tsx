@@ -29,6 +29,16 @@ const Footer = () => {
             
             <Button 
               size="sm" 
+              variant="glow"
+              asChild
+            >
+              <a href="https://www.paypal.com/paypalme/my/profile" target="_blank" rel="noopener noreferrer">
+                💰 PayPal
+              </a>
+            </Button>
+            
+            <Button 
+              size="sm" 
               variant="secondary"
               asChild
             >
