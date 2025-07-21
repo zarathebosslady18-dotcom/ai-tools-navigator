@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import OffersSection from "@/components/OffersSection";
+import WebinarFunnel from "@/components/WebinarFunnel";
+import MiniCourseFunnel from "@/components/MiniCourseFunnel";
+import CaseStudyFunnel from "@/components/CaseStudyFunnel";
+import ROICalculatorFunnel from "@/components/ROICalculatorFunnel";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
 import LeadMagnet from "@/components/LeadMagnet";
@@ -15,6 +19,7 @@ import Footer from "@/components/Footer";
 import EmailCaptureModal from "@/components/EmailCaptureModal";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import AIHelpWidget from "@/components/AIHelpWidget";
+import RetargetingPixels from "@/components/RetargetingPixels";
 
 const Index = () => {
   const [showEmailCapture, setShowEmailCapture] = useState(false);
@@ -29,9 +34,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <RetargetingPixels />
       <Header />
       <Hero />
       <OffersSection />
+      <WebinarFunnel />
+      <MiniCourseFunnel />
+      <CaseStudyFunnel />
+      <ROICalculatorFunnel />
       <ProblemSection />
       <SolutionSection />
       <Quiz />
