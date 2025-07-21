@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Calendar, ExternalLink, Instagram, Zap } from "lucide-react";
 
 const Header = () => {
   return (
@@ -13,13 +14,51 @@ const Header = () => {
               AI Tools Navigator
             </a>
           </div>
-          <Button 
-            size="sm" 
-            variant="hero"
-            onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Book Consultation
-          </Button>
+          
+          <div className="flex items-center gap-3">
+            <Button 
+              size="sm" 
+              variant="outline"
+              asChild
+            >
+              <a href="https://linktr.ee/MissAkiruBusinessconsulting" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Links
+              </a>
+            </Button>
+            
+            <Button 
+              size="sm" 
+              variant="secondary"
+              asChild
+            >
+              <a href="https://zarathebosslady.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer">
+                <Zap className="w-4 h-4 mr-2" />
+                Subscribe
+              </a>
+            </Button>
+            
+            <Button 
+              size="sm" 
+              variant="ghost"
+              asChild
+            >
+              <a href="https://www.instagram.com/miss_akiru_business_consulting?igsh=ZGo3cXludjU0anM4" target="_blank" rel="noopener noreferrer">
+                <Instagram className="w-4 h-4" />
+              </a>
+            </Button>
+            
+            <Button 
+              size="sm" 
+              variant="hero"
+              asChild
+            >
+              <a href="https://calendly.com/zarathebosslady18/30min" target="_blank" rel="noopener noreferrer">
+                <Calendar className="w-4 h-4 mr-2" />
+                Book Call
+              </a>
+            </Button>
+          </div>
         </nav>
       </div>
     </header>
