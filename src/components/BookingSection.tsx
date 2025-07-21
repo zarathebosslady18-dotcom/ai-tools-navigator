@@ -85,11 +85,12 @@ const BookingSection = () => {
                 <h3 className="text-2xl font-bold text-foreground mb-6">📞 Video Call Options</h3>
                 
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-2xl">
-                  <h4 className="font-bold text-foreground mb-3">🕒 Available Times (Dubai Time - GMT+4):</h4>
+                  <h4 className="font-bold text-foreground mb-3">📞 Call Options:</h4>
                   <div className="space-y-1 text-muted-foreground">
-                    <p>• Sunday-Thursday: 9:00 AM - 6:00 PM</p>
-                    <p>• Saturday: 10:00 AM - 2:00 PM</p>
+                    <p>• Video Call or Voice Call available</p>
+                    <p>• Monday-Thursday: 9:00 AM - 6:00 PM</p>
                     <p>• Friday: Closed</p>
+                    <p>• Saturday/Sunday: Unavailable (Priority clients only)</p>
                   </div>
                 </div>
 
@@ -106,7 +107,7 @@ const BookingSection = () => {
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-2xl">
                   <h4 className="font-bold text-foreground mb-2">💰 Investment:</h4>
                   <p className="text-lg font-semibold text-foreground">AED 356 (normally AED 500)</p>
-                  <p className="text-sm text-muted-foreground">Satisfaction guaranteed or full refund</p>
+                  <p className="text-sm text-muted-foreground">Payment via Pioneer • Satisfaction guaranteed</p>
                 </div>
               </div>
 
