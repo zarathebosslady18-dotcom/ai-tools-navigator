@@ -37,7 +37,7 @@ const MasterclassTeaser = () => {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5 text-primary" />
-              <span>Next Batch: Dec 15 & 22 (Weekends)</span>
+              <span>Next Batch: Aug 10 & 17 (Weekends)</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-primary" />
@@ -47,12 +47,13 @@ const MasterclassTeaser = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex items-center gap-2">
-              <span className="text-3xl font-bold">AED 2,499</span>
+              <span className="text-3xl font-bold text-primary">AED 1,999</span>
               <span className="text-lg text-muted-foreground line-through">AED 4,999</span>
+              <span className="bg-destructive text-destructive-foreground text-xs px-2 py-1 rounded-full font-bold">60% OFF</span>
             </div>
-            <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-3 py-1 rounded-full text-sm font-medium">
+            <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-3 py-1 rounded-full text-sm font-medium animate-pulse">
               <Users className="w-4 h-4" />
-              Limited to 50 Seats Only
+              Early Bird Ends Aug 1st
             </div>
           </div>
         </div>
@@ -93,7 +94,7 @@ const MasterclassTeaser = () => {
             </Button>
           </Link>
           <p className="text-sm text-muted-foreground mt-4">
-            Early Bird Offer Ends Soon! Save AED 2,500
+            ⚡ Early Bird Special: Save AED 3,000 - Ends August 1st!
           </p>
         </div>
       </div>

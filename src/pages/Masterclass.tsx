@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar, Clock, Users, Award, CheckCircle, Star, ArrowRight, ArrowLeft, Play, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -20,7 +20,36 @@ const Masterclass = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
   const { toast } = useToast();
+
+  // Countdown to early bird deadline (August 1st, 2024)
+  useEffect(() => {
+    const targetDate = new Date('2024-08-01T23:59:59').getTime();
+    
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -181,7 +210,35 @@ const Masterclass = () => {
           <ArrowLeft className="w-4 h-4" />
           Back to Home
         </Link>
-      </div>
+          </div>
+
+          {/* Countdown Timer */}
+          <div className="text-center mb-12">
+            <div className="inline-block bg-gradient-to-r from-destructive/10 to-destructive/5 border border-destructive/20 rounded-2xl p-6">
+              <h3 className="text-xl font-bold text-destructive mb-4">⚡ Early Bird Offer Ends In:</h3>
+              <div className="grid grid-cols-4 gap-4 text-center">
+                <div className="bg-background rounded-lg p-3 border">
+                  <div className="text-2xl font-bold text-destructive">{timeLeft.days}</div>
+                  <div className="text-xs text-muted-foreground">Days</div>
+                </div>
+                <div className="bg-background rounded-lg p-3 border">
+                  <div className="text-2xl font-bold text-destructive">{timeLeft.hours}</div>
+                  <div className="text-xs text-muted-foreground">Hours</div>
+                </div>
+                <div className="bg-background rounded-lg p-3 border">
+                  <div className="text-2xl font-bold text-destructive">{timeLeft.minutes}</div>
+                  <div className="text-xs text-muted-foreground">Minutes</div>
+                </div>
+                <div className="bg-background rounded-lg p-3 border">
+                  <div className="text-2xl font-bold text-destructive">{timeLeft.seconds}</div>
+                  <div className="text-xs text-muted-foreground">Seconds</div>
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground mt-4">
+                Save AED 3,000 with Early Bird Pricing!
+              </p>
+            </div>
+          </div>
 
       <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
         <div className="container mx-auto px-4">
@@ -214,7 +271,7 @@ const Masterclass = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-primary" />
-                <span>Next Batch: Dec 15 & 22 (Weekends)</span>
+                <span>Next Batch: Aug 10 & 17 (Weekends)</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5 text-primary" />
@@ -239,7 +296,7 @@ const Masterclass = () => {
                         </div>
                         <div>
                           <h3 className="font-bold text-xl">Build Your AI Foundation</h3>
-                          <p className="text-sm text-muted-foreground">Dec 15, Saturday</p>
+                          <p className="text-sm text-muted-foreground">Aug 10, Saturday</p>
                         </div>
                       </div>
                       
@@ -283,7 +340,7 @@ const Masterclass = () => {
                         </div>
                         <div>
                           <h3 className="font-bold text-xl">Deploy Your AI Stack</h3>
-                          <p className="text-sm text-muted-foreground">Dec 22, Saturday</p>
+                          <p className="text-sm text-muted-foreground">Aug 17, Saturday</p>
                         </div>
                       </div>
                       
@@ -365,16 +422,26 @@ const Masterclass = () => {
                 <Card className="border-2 border-primary/20 bg-gradient-to-br from-background to-primary/5">
                   <CardContent className="p-8">
                     <div className="text-center mb-6">
-                      <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-3 py-1 rounded-full text-sm font-medium mb-4">
+                      <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-3 py-1 rounded-full text-sm font-medium mb-4 animate-pulse">
                         <Users className="w-4 h-4" />
-                        Limited to 50 Seats Only
+                        Only 12 Seats Left!
                       </div>
                       
-                      <div className="flex items-center justify-center gap-2 mb-2">
-                        <span className="text-3xl font-bold">AED 2,499</span>
-                        <span className="text-lg text-muted-foreground line-through">AED 4,999</span>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center justify-center gap-3">
+                          <span className="text-4xl font-bold text-primary">AED 1,999</span>
+                          <div className="text-right">
+                            <div className="text-lg text-muted-foreground line-through">AED 4,999</div>
+                            <div className="text-sm text-destructive font-semibold">60% OFF</div>
+                          </div>
+                        </div>
+                        <p className="text-sm text-destructive font-medium">🔥 Early Bird Special - Ends Aug 1st!</p>
                       </div>
-                      <p className="text-sm text-muted-foreground">Early Bird Offer - Ends Soon!</p>
+
+                      <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-3 mb-4">
+                        <p className="text-sm font-semibold">Regular Price After Aug 1st: AED 4,999</p>
+                        <p className="text-xs text-muted-foreground">Save AED 3,000 by registering now!</p>
+                      </div>
                     </div>
 
                     <form onSubmit={handleSignup} className="space-y-4">
@@ -432,10 +499,15 @@ const Masterclass = () => {
                       </div>
                     </div>
 
-                    <div className="mt-6 p-4 bg-primary/10 rounded-lg">
-                      <p className="text-sm text-center">
-                        <strong>Bonus:</strong> Get a free 1-hour consultation with Miss Akiru worth AED 500!
-                      </p>
+                    <div className="mt-6 p-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg border border-primary/20">
+                      <div className="text-center">
+                        <p className="text-sm font-semibold mb-2">
+                          🎁 <strong>Bonus:</strong> Free 1-hour consultation with Miss Akiru (Worth AED 800!)
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          + Exclusive access to Dubai AI Leaders WhatsApp group
+                        </p>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
