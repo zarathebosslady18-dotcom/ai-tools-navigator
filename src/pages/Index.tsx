@@ -7,6 +7,7 @@ import Quiz from "@/components/Quiz";
 import ServicesSection from "@/components/ServicesSection";
 import BookingSection from "@/components/BookingSection";
 import Newsletter from "@/components/Newsletter";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <ServicesSection />
       <BookingSection />
       <Newsletter />
+      <Footer />
     </div>
   );
 };
