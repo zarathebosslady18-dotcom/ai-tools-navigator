@@ -7,7 +7,7 @@ import LeadMagnet from "@/components/LeadMagnet";
 import Quiz from "@/components/Quiz";
 import ServicesSection from "@/components/ServicesSection";
 import BookingSection from "@/components/BookingSection";
-import ZapierWebhook from "@/components/ZapierWebhook";
+
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import EmailCaptureModal from "@/components/EmailCaptureModal";
@@ -33,7 +33,7 @@ const Index = () => {
       <Quiz />
       <ServicesSection />
       <BookingSection />
-      <ZapierWebhook />
+      
       <Newsletter />
       <Footer />
       
