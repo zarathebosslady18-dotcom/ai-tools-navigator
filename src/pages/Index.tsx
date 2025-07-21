@@ -12,6 +12,8 @@ import BookingSection from "@/components/BookingSection";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import EmailCaptureModal from "@/components/EmailCaptureModal";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
+import AIHelpWidget from "@/components/AIHelpWidget";
 
 const Index = () => {
   const [showEmailCapture, setShowEmailCapture] = useState(false);
@@ -43,6 +45,10 @@ const Index = () => {
         isOpen={showEmailCapture} 
         onClose={() => setShowEmailCapture(false)} 
       />
+      
+      {/* Floating Widgets */}
+      <WhatsAppWidget />
+      <AIHelpWidget />
     </div>
   );
 };

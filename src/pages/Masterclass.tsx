@@ -8,6 +8,8 @@ import { triggerZapierWebhook } from "@/lib/webhook";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
+import AIHelpWidget from "@/components/AIHelpWidget";
 import {
   Accordion,
   AccordionContent,
@@ -641,6 +643,10 @@ const Masterclass = () => {
       </section>
 
       <Footer />
+      
+      {/* Floating Widgets */}
+      <WhatsAppWidget />
+      <AIHelpWidget />
     </div>
   );
 };
