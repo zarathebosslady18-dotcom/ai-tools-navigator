@@ -424,7 +424,7 @@ const Masterclass = () => {
                     <div className="text-center mb-6">
                       <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-3 py-1 rounded-full text-sm font-medium mb-4 animate-pulse">
                         <Users className="w-4 h-4" />
-                        Only 12 Seats Left!
+                        Only 20 Seats Available!
                       </div>
                       
                       <div className="space-y-2 mb-4">
