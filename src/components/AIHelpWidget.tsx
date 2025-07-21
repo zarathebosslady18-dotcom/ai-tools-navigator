@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Message {
   id: string;
@@ -70,22 +71,16 @@ const AIHelpWidget = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/ai-help', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      const { data, error } = await supabase.functions.invoke('ai-help', {
+        body: {
           message: inputMessage,
           context: faqData
-        }),
+        }
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to get AI response');
+      if (error) {
+        throw new Error(error.message);
       }
-
-      const data = await response.json();
       
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
