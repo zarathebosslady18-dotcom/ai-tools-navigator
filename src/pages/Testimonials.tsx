@@ -184,7 +184,7 @@ const Testimonials = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-6 py-2 rounded-full text-sm font-medium border border-destructive/20 mb-6 animate-pulse">
               <Clock className="w-4 h-4" />
-              Only 12 spots left for March consultations
+              Only 12 spots left for July consultations
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-8">
