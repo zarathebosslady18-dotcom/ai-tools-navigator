@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Star, Quote, TrendingUp, DollarSign, Clock, CheckCircle, ArrowRight, Play } from "lucide-react";
+import { Star, Quote, TrendingUp, DollarSign, Clock, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
+import AIHelpWidget from "@/components/AIHelpWidget";
 
 const Testimonials = () => {
   const [selectedTestimonial, setSelectedTestimonial] = useState(0);
@@ -357,7 +359,7 @@ const Testimonials = () => {
               <Link to="/#booking">
                 <Button variant="outline" size="lg" className="text-lg px-8 py-4">
                   Book Strategy Call
-                  <Play className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
             </div>
@@ -370,6 +372,10 @@ const Testimonials = () => {
       </section>
 
       <Footer />
+      
+      {/* Floating Widgets */}
+      <WhatsAppWidget />
+      <AIHelpWidget />
     </div>
   );
 };
