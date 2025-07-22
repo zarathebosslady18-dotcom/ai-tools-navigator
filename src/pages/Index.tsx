@@ -7,6 +7,7 @@ import MiniCourseFunnel from "@/components/MiniCourseFunnel";
 import CaseStudyFunnel from "@/components/CaseStudyFunnel";
 import ROICalculatorFunnel from "@/components/ROICalculatorFunnel";
 import ProblemSection from "@/components/ProblemSection";
+import AboutSection from "@/components/AboutSection";
 import SolutionSection from "@/components/SolutionSection";
 import LeadMagnet from "@/components/LeadMagnet";
 import Quiz from "@/components/Quiz";
@@ -42,6 +43,7 @@ const Index = () => {
       <MiniCourseFunnel />
       <CaseStudyFunnel />
       <ROICalculatorFunnel />
+      <AboutSection />
       <ProblemSection />
       <SolutionSection />
       <Quiz />

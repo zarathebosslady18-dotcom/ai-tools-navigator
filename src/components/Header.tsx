@@ -22,7 +22,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-4">
             <Link to="/#consultation" className="text-foreground hover:text-primary transition-colors">Services</Link>
-            <Link to="/#problem" className="text-foreground hover:text-primary transition-colors">About</Link>
+            <Link to="/#about" className="text-foreground hover:text-primary transition-colors">About</Link>
             <Link to="/faq" className="text-foreground hover:text-primary transition-colors">FAQ</Link>
             
             {/* Two Prominent CTA Buttons */}
@@ -64,7 +64,7 @@ const Header = () => {
           <div className="md:hidden mt-4 pb-4 border-t border-border/40">
             <div className="flex flex-col space-y-4 pt-4">
               <Link to="/#consultation" className="text-foreground hover:text-primary transition-colors">Services</Link>
-              <Link to="/#problem" className="text-foreground hover:text-primary transition-colors">About</Link>
+              <Link to="/#about" className="text-foreground hover:text-primary transition-colors">About</Link>
               <Link to="/faq" className="text-foreground hover:text-primary transition-colors">FAQ</Link>
               
               <Link to="/masterclass" className="mt-4">
