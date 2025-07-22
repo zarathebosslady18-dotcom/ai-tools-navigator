@@ -15,6 +15,26 @@ import {
 const FAQ = () => {
   const faqs = [
     {
+      question: "What Is The AI Tools Consultation About?",
+      answer: "Our AI Tools Consultation helps Dubai businesses identify the perfect AI tools for their specific needs. We analyze your workflow, budget, and goals to recommend the most effective AI solutions for your UAE business context."
+    },
+    {
+      question: "How Does The Free Assessment Work?",
+      answer: "The free 5-minute assessment asks about your business size, industry, current challenges, and goals. Based on your responses, you'll receive a personalized report with AI tool recommendations optimized for Dubai market compliance and Arabic language support."
+    },
+    {
+      question: "What's Included In The AED 356 Strategy Call?",
+      answer: "The 1-hour consultation includes a deep-dive analysis of your business, custom AI roadmap creation, ROI calculations in AED, UAE compliance guidance, Arabic AI tool integration strategies, and a follow-up strategy document."
+    },
+    {
+      question: "Do You Offer Done-For-You AI Implementation?",
+      answer: "Yes! Our AED 1,067 package includes complete AI stack setup, Arabic language integration, Dubai compliance configuration, team training (remote or in-person in Dubai), and 30-day optimization support."
+    },
+    {
+      question: "Are The AI Tools Recommendations UAE-Compliant?",
+      answer: "Absolutely! All our recommendations consider UAE data privacy laws, local business requirements, and Arabic language support. We ensure all suggested tools meet Dubai's regulatory standards."
+    },
+    {
       question: "Who Is This Masterclass For?",
       answer: "This masterclass is designed for Dubai professionals across all industries - from business owners and entrepreneurs to marketing teams, operations managers, and C-suite executives. No prior AI knowledge is required."
     },
@@ -94,7 +114,7 @@ const FAQ = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-2 rounded-full text-sm font-medium border border-primary/20 mb-6">
               <Star className="w-4 h-4" />
-              AI Business Transformation Masterclass
+              AI Business Solutions
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Frequently Asked{" "}
@@ -103,7 +123,7 @@ const FAQ = () => {
               </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Everything you need to know about the AI Business Transformation Masterclass
+              Everything you need to know about our AI consultation services and masterclass
             </p>
           </div>
 
