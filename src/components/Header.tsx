@@ -14,15 +14,16 @@ const Header = () => {
             <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
               <span className="text-white font-bold text-lg">🧭</span>
             </div>
-            <a href="#" className="text-xl font-bold text-foreground hover:text-primary transition-colors">
+            <Link to="/" className="text-xl font-bold text-foreground hover:text-primary transition-colors">
               AI Tools Navigator
-            </a>
+            </Link>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-4">
             <Link to="/#consultation" className="text-foreground hover:text-primary transition-colors">Services</Link>
             <Link to="/#about" className="text-foreground hover:text-primary transition-colors">About</Link>
+            <Link to="/testimonials" className="text-foreground hover:text-primary transition-colors">Testimonials</Link>
             <Link to="/faq" className="text-foreground hover:text-primary transition-colors">FAQ</Link>
             
             {/* Two Prominent CTA Buttons */}
@@ -65,6 +66,7 @@ const Header = () => {
             <div className="flex flex-col space-y-4 pt-4">
               <Link to="/#consultation" className="text-foreground hover:text-primary transition-colors">Services</Link>
               <Link to="/#about" className="text-foreground hover:text-primary transition-colors">About</Link>
+              <Link to="/testimonials" className="text-foreground hover:text-primary transition-colors">Testimonials</Link>
               <Link to="/faq" className="text-foreground hover:text-primary transition-colors">FAQ</Link>
               
               <Link to="/masterclass" className="mt-4">
