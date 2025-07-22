@@ -2,54 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* AI Tools Navigator Design System - Dubai Tech Colors
-Inspired by the compass logo with cyan/turquoise and green accents
+/* AlMadar Trading Design System - Black and Green Theme
+Professional black background with vibrant green accents
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 24% 16%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 24% 16%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 24% 16%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Primary: Dubai Tech Cyan */
-    --primary: 186 100% 42%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 186 100% 65%;
+    /* Primary: Vibrant Green */
+    --primary: 142 76% 48%;
+    --primary-foreground: 0 0% 5%;
+    --primary-glow: 142 76% 65%;
 
-    /* Secondary: Tech Green */
-    --secondary: 142 76% 48%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary: Dark Green */
+    --secondary: 142 50% 35%;
+    --secondary-foreground: 0 0% 98%;
 
-    /* Muted: Professional grays */
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    /* Muted: Dark grays */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
     /* Accent: Bright lime for highlights */
     --accent: 76 100% 50%;
-    --accent-foreground: 210 24% 16%;
+    --accent-foreground: 0 0% 5%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 186 100% 42%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 142 76% 48%;
 
     --radius: 0.75rem;
 
-    /* AI Navigator Custom Tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(186 100% 42%), hsl(142 76% 48%));
-    --gradient-hero: linear-gradient(135deg, hsl(186 100% 42%) 0%, hsl(142 76% 48%) 50%, hsl(76 100% 50%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
-    --shadow-glow: 0 10px 40px hsl(186 100% 42% / 0.3);
-    --shadow-card: 0 10px 30px hsl(0 0% 0% / 0.1);
+    /* AlMadar Trading Custom Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 48%), hsl(142 50% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(142 76% 48%) 50%, hsl(76 100% 50%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 100%);
+    --shadow-glow: 0 10px 40px hsl(142 76% 48% / 0.3);
+    --shadow-card: 0 10px 30px hsl(0 0% 0% / 0.5);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
