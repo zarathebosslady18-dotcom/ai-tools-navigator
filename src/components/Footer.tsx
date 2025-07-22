@@ -18,6 +18,30 @@ const Footer = () => {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button 
               size="sm" 
+              variant="ghost"
+              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              About Us
+            </Button>
+            
+            <Button 
+              size="sm" 
+              variant="ghost"
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Services
+            </Button>
+            
+            <Button 
+              size="sm" 
+              variant="ghost"
+              onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Testimonials
+            </Button>
+            
+            <Button 
+              size="sm" 
               variant="outline"
               asChild
             >
