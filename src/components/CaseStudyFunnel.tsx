@@ -46,7 +46,7 @@ const CaseStudyFunnel = () => {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              How AlMadar Trading
+              How Zenith Trading
               <br />
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Saved AED 15,420 Monthly
@@ -80,7 +80,7 @@ const CaseStudyFunnel = () => {
               {/* Company Overview */}
               <Card className="border-l-4 border-l-primary">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">Company Profile: AlMadar Trading LLC</h3>
+                  <h3 className="text-xl font-bold mb-4">Company Profile: Zenith Trading LLC</h3>
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
