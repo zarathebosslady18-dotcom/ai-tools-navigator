@@ -11,48 +11,138 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Ahmed Al-Mansouri",
-      title: "CEO, Emirates Digital Solutions",
-      company: "Dubai, UAE",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      name: "Sarah Chen",
+      title: "Founder & CEO",
+      company: "TechVision Consulting, Dubai",
+      image: "/lovable-uploads/b355bc61-c0af-4091-8f51-75b3c45cc01f.png",
       rating: 5,
-      result: "AED 85,000 saved annually",
-      timeframe: "Within 3 months",
-      quote: "Miss Akiru didn't just recommend AI tools - she transformed our entire operation. We went from manually processing 200 invoices daily to automated processing of 2,000+. The ROI was visible within weeks, not months.",
+      result: "AED 120,000 saved annually",
+      timeframe: "Within 2 months",
+      quote: "Miss Akiru's AI implementation strategy completely revolutionized our consulting firm. We automated our client onboarding, report generation, and follow-up processes. Our team productivity increased by 400% and client satisfaction hit an all-time high.",
       metrics: {
-        productivity: "+340%",
-        cost_reduction: "AED 85,000/year",
-        time_saved: "25 hours/week"
-      }
-    },
-    {
-      name: "Fatima Al-Zahra",
-      title: "Marketing Director",
-      company: "Luxury Hotels Group, Dubai",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b120?w=100&h=100&fit=crop&crop=face",
-      rating: 5,
-      result: "Customer engagement up 280%",
-      timeframe: "6 weeks implementation",
-      quote: "I was skeptical about AI until Miss Akiru showed us the potential. Our hotel bookings increased by 280% after implementing her AI customer service and marketing automation recommendations. The Arabic language support was game-changing.",
-      metrics: {
-        bookings: "+280%",
-        response_time: "-90%",
-        revenue: "AED 150,000/month extra"
-      }
-    },
-    {
-      name: "Omar Hassan",
-      title: "Operations Manager",
-      company: "Dubai Construction Ltd",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-      rating: 5,
-      result: "Project delivery 60% faster",
-      timeframe: "First month",
-      quote: "Construction and AI? I thought it was impossible. Miss Akiru proved me wrong. Our project management, resource allocation, and client communications are now fully automated. We're completing projects 60% faster.",
-      metrics: {
-        project_speed: "+60%",
-        efficiency: "+45%",
+        productivity: "+400%",
+        cost_reduction: "AED 120,000/year",
         client_satisfaction: "98%"
+      }
+    },
+    {
+      name: "Amara Williams",
+      title: "Executive Director",
+      company: "Emirates Finance Group",
+      image: "/lovable-uploads/df12d5b5-d1fb-48f5-af06-652cb4fcac9d.png",
+      rating: 5,
+      result: "Revenue increased by 320%",
+      timeframe: "4 weeks implementation",
+      quote: "I was drowning in manual financial analysis until Miss Akiru introduced AI-powered solutions. Now our risk assessment, portfolio management, and client reporting are fully automated. We're processing 10x more clients with the same team size.",
+      metrics: {
+        revenue: "+320%",
+        efficiency: "+1000%",
+        processing_time: "-85%"
+      }
+    },
+    {
+      name: "Zara Ahmed",
+      title: "Creative Director",
+      company: "Mirage Digital Agency",
+      image: "/lovable-uploads/d9e13406-a8f3-4ff6-a742-7b08f32e7b77.png",
+      rating: 5,
+      result: "Campaign ROI up 275%",
+      timeframe: "First month",
+      quote: "Miss Akiru showed us how to leverage AI for creative campaigns and client management. Our social media automation, content generation, and performance tracking are now seamless. Clients are amazed by our speed and accuracy.",
+      metrics: {
+        roi: "+275%",
+        campaign_speed: "+300%",
+        client_retention: "95%"
+      }
+    },
+    {
+      name: "Maya Rodriguez",
+      title: "Restaurant Owner",
+      company: "Fusion Bistro Chain, Abu Dhabi",
+      image: "/lovable-uploads/b1c753b5-df63-49f6-b050-1083500295c8.png",
+      rating: 5,
+      result: "Costs reduced by AED 75,000",
+      timeframe: "6 weeks",
+      quote: "Running multiple restaurants was a nightmare until Miss Akiru implemented AI solutions for inventory, staff scheduling, and customer service. Our food waste dropped by 60% and customer wait times are practically zero now.",
+      metrics: {
+        cost_reduction: "AED 75,000/year",
+        waste_reduction: "-60%",
+        efficiency: "+180%"
+      }
+    },
+    {
+      name: "David Mitchell",
+      title: "Senior Partner",
+      company: "Gulf Legal Associates",
+      image: "/lovable-uploads/319f553f-90eb-4dbd-b86f-70a9ee1e88b6.png",
+      rating: 5,
+      result: "Case processing 450% faster",
+      timeframe: "3 months",
+      quote: "Legal work and AI seemed incompatible until Miss Akiru proved otherwise. Our document review, case research, and client communication are now automated. We're handling 5x more cases with unprecedented accuracy.",
+      metrics: {
+        case_speed: "+450%",
+        accuracy: "+95%",
+        billable_hours: "+300%"
+      }
+    },
+    {
+      name: "Alexander Petrov",
+      title: "Investment Director",
+      company: "Dubai Capital Ventures",
+      image: "/lovable-uploads/638880f3-91b8-4d63-9c1b-6cf85ed0f31b.png",
+      rating: 5,
+      result: "Portfolio returns up 185%",
+      timeframe: "8 weeks",
+      quote: "Miss Akiru's AI solutions transformed our investment analysis and risk management. We're now identifying opportunities 10x faster and our predictive models have an 94% accuracy rate. Our clients are seeing incredible returns.",
+      metrics: {
+        returns: "+185%",
+        analysis_speed: "+1000%",
+        accuracy: "94%"
+      }
+    },
+    {
+      name: "Hassan & Nadia Al-Rashid",
+      title: "Co-Founders",
+      company: "Family Business Consulting",
+      image: "/lovable-uploads/2bc3de43-6747-4ec7-b04a-719b0ec53afa.png",
+      rating: 5,
+      result: "Family business efficiency up 240%",
+      timeframe: "5 weeks",
+      quote: "Miss Akiru helped us modernize our traditional family business with AI. From succession planning to operational efficiency, every aspect improved. Our multi-generational team now works seamlessly together using smart automation.",
+      metrics: {
+        efficiency: "+240%",
+        collaboration: "+200%",
+        satisfaction: "97%"
+      }
+    },
+    {
+      name: "Eleanor Thompson",
+      title: "Wellness Center Director",
+      company: "Serenity Health & Spa, Dubai",
+      image: "/lovable-uploads/bd325d4f-4dae-4aa7-95eb-5b0fe6354c46.png",
+      rating: 5,
+      result: "Client bookings up 190%",
+      timeframe: "4 weeks",
+      quote: "Miss Akiru's AI solutions revolutionized our wellness center operations. From appointment scheduling to personalized treatment recommendations, everything runs smoothly. Our clients love the seamless experience and personalized care.",
+      metrics: {
+        bookings: "+190%",
+        satisfaction: "96%",
+        efficiency: "+150%"
+      }
+    },
+    {
+      name: "Marcus Johnson",
+      title: "Fitness Studio Owner",
+      company: "Elite Performance Gym, Sharjah",
+      image: "/lovable-uploads/49a8ba69-cf1a-40ae-8de3-9972949c612a.png",
+      rating: 5,
+      result: "Membership growth 310%",
+      timeframe: "6 weeks",
+      quote: "Miss Akiru transformed my gym from struggling to thriving. AI-powered member management, personalized workout plans, and automated nutrition tracking increased our retention rate to 89%. We're now the top gym in Sharjah.",
+      metrics: {
+        membership: "+310%",
+        retention: "89%",
+        revenue: "+250%"
       }
     }
   ];
