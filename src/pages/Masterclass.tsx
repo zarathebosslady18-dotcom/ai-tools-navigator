@@ -30,9 +30,9 @@ const Masterclass = () => {
   });
   const { toast } = useToast();
 
-  // Countdown to early bird deadline (July 31st, 2025)
+  // Countdown to early bird deadline (August 6th, 2025)
   useEffect(() => {
-    const targetDate = new Date('2025-07-31T23:59:59').getTime();
+    const targetDate = new Date('2025-08-06T23:59:59').getTime();
     
     const timer = setInterval(() => {
       const now = new Date().getTime();
