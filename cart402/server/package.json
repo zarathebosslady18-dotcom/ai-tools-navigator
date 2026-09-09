@@ -1,0 +1,16 @@
+{
+  "name": "cart402-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "demo": "node demo-agent.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "viem": "^2.21.0"
+  }
+}
