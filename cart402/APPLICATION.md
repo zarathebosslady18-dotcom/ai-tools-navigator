@@ -14,7 +14,8 @@ Cart402 *(working title — rename freely before submit)*
 
 ### Website / links
 - Product (working demo): `[FILL — deployed URL, e.g. a Render/Fly/Vercel deploy of this repo]`
-- GitHub: `[FILL — public repo]`
+- GitHub: https://github.com/zarathebosslady18-dotcom/ai-tools-uae-stack/pull/1
+- Email: missakirubusiness@gmail.com
 - X / Twitter: `[FILL]`
 - LinkedIn: `[FILL]`
 
@@ -45,7 +46,7 @@ Cart402 *(working title — rename freely before submit)*
 > Beyond code, we bring the founder's live UAE/GCC SME network [from LinkedIn — years / client types / industries] — the pilot target for program weeks 5–6 (10–20 UAE SME merchant onboardings).
 
 ### Team
-> **Solo founder — [NAME]**. [From LinkedIn — 1–2 lines: role, years in field, notable clients/companies/credentials]. Based in Dubai with direct, working relationships across UAE/GCC SMEs — the distribution edge no US cohort team has: first-principles access to the MENA merchant market.
+> **Solo founder — Miss Akiru (Zuhura Akiru)**. [From LinkedIn — 1–2 lines: role, years in field, notable clients/companies/credentials]. Based in Dubai with direct, working relationships across UAE/GCC SMEs — the distribution edge no US cohort team has: first-principles access to the MENA merchant market.
 >
 > Cart402 is weeks old and the working core shipped in the founder's first week — that speed is the point. The program's dedicated advisor plus weekly expert support is exactly the team layer a solo founder is missing; the first hire funded by the $100K is a full-stack engineer to harden and scale the payment path.
 

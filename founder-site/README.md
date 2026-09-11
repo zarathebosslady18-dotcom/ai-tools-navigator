@@ -1,4 +1,4 @@
-# Founder site — Zara (working name)
+# Founder site — Zuhura Akiru (working name)
 
 Personal brand site: **zero dependencies, no build step.** Pure HTML/CSS/JS + one Google Font (Fraunces). Deploys anywhere static: Netlify, Vercel, GitHub Pages, Cloudflare Pages, S3.
 
@@ -23,4 +23,4 @@ Personal brand site: **zero dependencies, no build step.** Pure HTML/CSS/JS + on
 - The gate is **soft by design** (client-side, session-persisted): it's a velvet rope, not a vault. Don't put confidential content behind it.
 - Accessibility: `prefers-reduced-motion` disables all motion; semantic landmarks, live-region form status, visible focus.
 - SEO: canonical + OG + JSON-LD (Person/Article) on every page; articles are real, finished, indexable.
-- "Zara" is a working name from the GitHub handle — global find/replace when you confirm the name you want on the site.
+- "Zuhura Akiru" is a working name from the GitHub handle — global find/replace when you confirm the name you want on the site.
