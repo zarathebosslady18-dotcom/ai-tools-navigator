@@ -1,0 +1,6 @@
+# Founder site — allow all pages, block nothing
+# Replace YOUR-DOMAIN.COM with the live domain before deploying.
+User-agent: *
+Allow: /
+
+Sitemap: https://YOUR-DOMAIN.COM/sitemap.xml
