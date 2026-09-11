@@ -91,6 +91,7 @@ Batch 003 already funded the credit lane (Floe Labs — onchain credit infra for
 - *Agent marketplace competition* → We are the merchant-side + budget-guardrail layer; complementary to Coinbase's own stack (we build *for* it).
 - *Sim mode skepticism* → Signatures and EIP-712 verification are real in both modes; only block inclusion is simulated in sim; live mode is one env var away and is the first program milestone.
 
-## 9. Team (fill in real details before submitting)
-- UAE/Dubai-based founders, fintech + AI operations background, live SME network in UAE/GCC.
-- **This is the differentiator in an all-US cohort:** first-principles access to a real, under-served merchant market (MENA SME digital services), built globally on Base rails.
+## 9. Team
+- Solo founder, Dubai-based: [NAME — from LinkedIn: background, years, SME network].
+- Weeks-old project, zero funding — the working core shipped in week one (execution speed is the signal, and it's visible in the demo).
+- **This is the differentiator in an all-US cohort:** first-principles access to a real, under-served merchant market (MENA SME digital services), built globally on Base rails. The program's advisor/VC layer is the missing team.
