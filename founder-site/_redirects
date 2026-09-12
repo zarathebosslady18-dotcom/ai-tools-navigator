@@ -1,0 +1,7 @@
+# Netlify redirects.
+# 301 the old CV to the new home — replace /old-cv with your previous CV path(s).
+/old-cv  /  301!
+/old-cv/*  /  301!
+/resume  /  301!
+/cv  /  301!
+/*  /404.html  404

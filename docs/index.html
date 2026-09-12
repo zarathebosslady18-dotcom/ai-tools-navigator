@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Tools Navigator — Corporate Automation Consultancy</title>
+<meta name="description" content="Dubai-based corporate automation consultancy. AI workflow architecture, tool selection, revenue automation, and AI agents that scale your business without adding headcount.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Tools Navigator — Corporate Automation Consultancy">
+<meta property="og:description" content="We map, implement, and manage intelligent automation systems that eliminate manual work, reduce costs, and scale your business.">
+<meta property="og:image" content="[DOMAIN]/og-cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96B;
+    --gold-dim: #8B6E2A;
+    --obsidian: #0A0A0B;
+    --deep: #0F0F11;
+    --surface: #141416;
+    --surface-2: #1C1C1F;
+    --border: rgba(201,168,76,0.18);
+    --text: #E8E4DC;
+    --text-dim: #8A8578;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    background: var(--obsidian);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── CURSOR ── */
+  .cursor {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.3s, height 0.3s;
+    mix-blend-mode: screen;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.18s ease;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.35;
+  }
+
+  /* ── NAV ─ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    padding: 22px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(10,10,11,0.92);
+    backdrop-filter: blur(20px);
+    border-color: var(--border);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-emblem {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .logo-emblem::after {
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    background: var(--gold);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: rotate(45deg);
+    opacity: 0.85;
+  }
+  .logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .logo-text span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--obsidian);
+    background: var(--gold);
+    padding: 10px 24px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 60px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%),
+      linear-gradient(160deg, #0F0F11 0%, #0A0A0B 100%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at 60% 50%, rgba(0,0,0,0.6) 0%, transparent 70%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .eyebrow-line {
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+  .eyebrow-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-desc {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-dim);
+    max-width: 480px;
+    margin-bottom: 48px;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--obsidian);
+    background: var(--gold);
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold-light);
+    transform: translateX(-101%);
+    transition: transform 0.3s;
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary span { position: relative; z-index: 1; }
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s;
+  }
+  .btn-ghost::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: currentColor;
+    transition: width 0.2s;
+  }
+  .btn-ghost:hover { color: var(--gold); }
+  .btn-ghost:hover::before { width: 36px; }
+
+  .hero-right {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 2;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px 28px;
+    min-width: 180px;
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fadeInRight 0.6s forwards;
+  }
+  .stat-card:nth-child(1) { animation-delay: 0.8s; }
+  .stat-card:nth-child(2) { animation-delay: 1s; }
+  .stat-card:nth-child(3) { animation-delay: 1.2s; }
+  @keyframes fadeInRight {
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 2;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollAnim 2s infinite;
+  }
+  @keyframes scrollAnim {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+  .scroll-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    writing-mode: vertical-rl;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-strip {
+    background: var(--gold);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-flex;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-inner span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--obsidian);
+    padding: 0 40px;
+  }
+  .marquee-inner span::before {
+    content: '◆';
+    margin-right: 40px;
+    font-size: 8px;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 120px 60px; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .section-label span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  h2 em { font-style: italic; color: var(--gold); }
+
+  /* ── SERVICES ── */
+  #services { background: var(--deep); }
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+  }
+  .services-desc {
+    max-width: 360px;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+  .service-card {
+    background: var(--surface);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.3s;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .service-card:hover { background: var(--surface-2); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    margin-bottom: 40px;
+    display: block;
+  }
+  .service-icon {
+    width: 48px; height: 48px;
+    margin-bottom: 24px;
+    color: var(--gold);
+  }
+  .service-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .service-text {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .service-arrow {
+    position: absolute;
+    bottom: 40px; right: 40px;
+    width: 32px; height: 32px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s;
+  }
+  .service-card:hover .service-arrow { opacity: 1; transform: translateY(0); }
+
+  /* ── PROCESS ─ */
+  #process { position: relative; }
+  .process-header { margin-bottom: 80px; }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+  }
+  .step {
+    padding: 0 32px;
+    padding-top: 0;
+  }
+  .step-num {
+    width: 56px; height: 56px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gold);
+    background: var(--obsidian);
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+    transition: background 0.3s;
+  }
+  .step:hover .step-num { background: var(--gold); color: var(--obsidian); }
+  .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  .step-text {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── TOOLS ── */
+  #tools { background: var(--deep); }
+  .tools-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 60px;
+  }
+  .tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .tool-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border-left: 2px solid transparent;
+    cursor: default;
+    transition: all 0.25s;
+  }
+  .tool-item:hover {
+    background: var(--surface-2);
+    border-color: var(--gold);
+  }
+  .tool-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold);
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+  .tool-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+  .tool-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-left: auto;
+  }
+  .tools-visual {
+    position: sticky;
+    top: 100px;
+  }
+  .tech-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 48px;
+  }
+  .tech-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .tech-card-subtitle {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+  }
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .tech-chip {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    transition: all 0.2s;
+  }
+  .tech-chip:hover { border-color: var(--gold); color: var(--gold); }
+  .roi-bar {
+    margin-bottom: 16px;
+  }
+  .roi-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .roi-track {
+    height: 3px;
+    background: var(--surface-2);
+    position: relative;
+  }
+  .roi-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--gold-dim), var(--gold));
+    transition: width 1s ease;
+  }
+
+  /* ── PRICING ── */
+  #pricing { background: var(--obsidian); }
+  .pricing-header { margin-bottom: 80px; }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+  .price-card {
+    background: var(--surface);
+    padding: 56px 44px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .price-card.featured {
+    background: var(--surface-2);
+  }
+  .price-card.featured::before {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: var(--gold);
+    color: var(--obsidian);
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    padding: 8px;
+  }
+  .price-card.featured { padding-top: 72px; }
+  .price-tier {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .price-period {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.1em;
+  }
+  .price-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 32px;
+  }
+  .price-features {
+    list-style: none;
+    margin-bottom: 48px;
+  }
+  .price-features li {
+    font-size: 13px;
+    color: var(--text-dim);
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 300;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .price-features li::before {
+    content: '';
+    width: 16px; height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .price-features li.dim { opacity: 0.35; }
+  .btn-outline {
+    display: block;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 16px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover, .featured .btn-outline {
+    background: var(--gold);
+    color: var(--obsidian);
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--deep); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 60px;
+  }
+  .testimonial-card {
+    background: var(--surface);
+    padding: 48px 40px;
+  }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: var(--gold);
+    line-height: 0.7;
+    margin-bottom: 24px;
+    opacity: 0.4;
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 32px;
+  }
+  .quote-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .author-avatar {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--obsidian);
+  }
+  .author-info strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .author-info span {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  /* ── CTA SECTION ── */
+  #cta {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  #cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
+  .cta-content { position: relative; z-index: 1; }
+  .cta-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+  #cta h2 { margin-bottom: 20px; }
+  #cta p {
+    font-size: 15px;
+    color: var(--text-dim);
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+  }
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--obsidian);
+    padding: 80px 60px 40px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  .footer-brand p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-weight: 300;
+    margin: 20px 0;
+    max-width: 280px;
+  }
+  .footer-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-links a {
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-legal {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+  .footer-legal span { color: var(--gold); }
+  .socials {
+    display: flex;
+    gap: 16px;
+  }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── HERO TEXT ANIMATION ── */
+  .hero-content h1, .hero-content .hero-eyebrow, .hero-content .hero-desc, .hero-content .hero-actions {
+    opacity: 0;
+    animation: fadeUp 0.8s forwards;
+  }
+  .hero-content .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-content h1 { animation-delay: 0.3s; }
+  .hero-content .hero-desc { animation-delay: 0.5s; }
+  .hero-content .hero-actions { animation-delay: 0.7s; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── ACCESSIBILITY ── */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001s !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001s !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+    .cursor, .cursor-ring { display: none !important; }
+  }
+
+  @media (max-width: 1100px) {
+    nav { padding: 20px 32px; }
+    .nav-links { display: none; }
+    #hero { padding: 100px 32px 60px; }
+    .hero-right { display: none; }
+    section { padding: 80px 32px; }
+    .services-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .services-header { flex-direction: column; gap: 24px; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::before { display: none; }
+    .tools-layout { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    footer { padding: 60px 32px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="logo-emblem"></div>
+    <div class="logo-text"><span>AI</span> Tools Navigator</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#tools">Stack</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#testimonials">Results</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Corporate Automation Consultancy</span>
+    </div>
+    <h1>Navigate Your
+<em>AI</em> Advantage</h1>
+    <p class="hero-desc">We map, implement, and manage intelligent automation systems that eliminate manual work, reduce costs, and scale your business — without adding headcount.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary"><span>Start Automating →</span></a>
+      <a href="#services" class="btn-ghost">Explore Services</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-num">80%</div>
+      <div class="stat-label">Manual Work Eliminated</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3×</div>
+      <div class="stat-label">Avg ROI in 90 Days</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">48h</div>
+      <div class="stat-label">Audit to Action Plan</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <div class="scroll-text">Scroll</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Workflow Automation</span>
+    <span>AI Tool Integration</span>
+    <span>Process Mapping</span>
+    <span>Revenue Optimization</span>
+    <span>Systems Design</span>
+    <span>Intelligent Automation</span>
+    <span>Workflow Automation</span>
+    <span>AI Tool Integration</span>
+    <span>Process Mapping</span>
+    <span>Revenue Optimization</span>
+    <span>Systems Design</span>
+    <span>Intelligent Automation</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label"><span>What We Do</span></div>
+      <h2>Precision-Built
+<em>Automation Systems</em></h2>
+    </div>
+    <p class="services-desc">Every solution is custom-engineered around your workflows, tools, and team — not templated. We build for scale from day one.</p>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 48 48">
+        <rect x="8" y="8" width="14" height="14" rx="2"/>
+        <rect x="26" y="8" width="14" height="14" rx="2"/>
+        <rect x="8" y="26" width="14" height="14" rx="2"/>
+        <rect x="26" y="26" width="14" height="14" rx="2"/>
+        <line x1="15" y1="22" x2="15" y2="26"/>
+        <line x1="8" y1="33" x2="26" y2="33"/>
+        <line x1="33" y1="22" x2="33" y2="26"/>
+      </svg>
+      <div class="service-title">AI Workflow Architecture</div>
+      <p class="service-text">End-to-end automation blueprints that eliminate repetitive tasks. From lead capture to client delivery — fully systematized using the right AI tools for each step.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="16"/>
+        <path d="M24 8 L24 24 L34 14"/>
+        <circle cx="24" cy="24" r="3" fill="currentColor"/>
+      </svg>
+      <div class="service-title">Tool Selection & Integration</div>
+      <p class="service-text">We cut through the noise of 10,000+ AI tools to identify exactly what your business needs. Implementation included — no technical overwhelm for your team.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 48 48">
+        <polyline points="8,32 18,18 26,26 36,12"/>
+        <polyline points="32,12 36,12 36,16"/>
+      </svg>
+      <div class="service-title">Revenue Automation</div>
+      <p class="service-text">Sales pipelines, proposal generators, client onboarding, invoicing — all automated. Convert more, follow up faster, and close deals while you sleep.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 48 48">
+        <rect x="6" y="14" width="36" height="28" rx="2"/>
+        <path d="M16 14V10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/>
+        <line x1="24" y1="22" x2="24" y2="34"/>
+        <line x1="18" y1="28" x2="30" y2="28"/>
+      </svg>
+      <div class="service-title">Content & Marketing AI</div>
+      <p class="service-text">Automated content calendars, social media scheduling, email sequences, and ad copy — powered by AI trained on your brand voice and audience data.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 48 48">
+        <rect x="10" y="10" width="28" height="20" rx="2"/>
+        <path d="M16 30 L16 38 L32 38 L32 30"/>
+        <line x1="20" y1="38" x2="28" y2="38"/>
+        <circle cx="24" cy="20" r="5"/>
+      </svg>
+      <div class="service-title">AI Staff Augmentation</div>
+      <p class="service-text">Deploy AI agents that handle customer service, scheduling, research, and reporting. Operate like a larger team at a fraction of the cost.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 48 48">
+        <path d="M12 36 L24 12 L36 36"/>
+        <line x1="16" y1="28" x2="32" y2="28"/>
+      </svg>
+      <div class="service-title">Automation Audit & Strategy</div>
+      <p class="service-text">48-hour deep-dive into your current operations. We identify automation opportunities, estimate ROI, and deliver a prioritized implementation roadmap.</p>
+      <div class="service-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-header reveal">
+    <div class="section-label"><span>How It Works</span></div>
+    <h2>From Audit to
+<em>Fully Automated</em></h2>
+  </div>
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Discovery Call</div>
+      <p class="step-text">30-minute deep dive into your current processes, pain points, and revenue goals. We map where time and money are being lost.</p>
+    </div>
+    <div class="step reveal reveal-delay-1">
+      <div class="step-num">02</div>
+      <div class="step-title">Automation Audit</div>
+      <p class="step-text">Full analysis of your workflows, tools, and team capacity. Delivered within 48 hours — a prioritized roadmap with ROI projections.</p>
+    </div>
+    <div class="step reveal reveal-delay-2">
+      <div class="step-num">03</div>
+      <div class="step-title">Build & Integrate</div>
+      <p class="step-text">We design and implement your custom automation stack — n8n flows, AI agents, CRM integrations — tested and ready to deploy.</p>
+    </div>
+    <div class="step reveal reveal-delay-3">
+      <div class="step-num">04</div>
+      <div class="step-title">Optimise & Scale</div>
+      <p class="step-text">Ongoing monitoring, iteration, and expansion. As your business grows, your automation infrastructure grows with it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS STACK -->
+<section id="tools">
+  <div class="reveal">
+    <div class="section-label"><span>Technology Stack</span></div>
+    <h2>Powered by the
+<em>Best AI Tools</em></h2>
+  </div>
+
+  <div class="tools-layout">
+    <div class="tools-list reveal">
+      <div class="tool-item">
+        <span class="tool-badge">Automation</span>
+        <span class="tool-name">n8n</span>
+        <span class="tool-desc">Workflow orchestration</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-badge">Automation</span>
+        <span class="tool-name">Make.com</span>
+        <span class="tool-desc">Visual automation builder</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-badge">AI Core</span>
+        <span class="tool-name">Claude API</span>
+        <span class="tool-desc">Reasoning & generation</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-badge">AI Core</span>
+        <span class="tool-name">OpenAI GPT-4</span>
+        <span class="tool-desc">Language models</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-badge">Database</span>
+        <span class="tool-name">Airtable</span>
+        <span class="tool-desc">Structured data management</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-badge">CRM</span>
+        <span class="tool-name">HubSpot / GoHighLevel</span>
+        <span class="tool-desc">Sales pipeline automation</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-badge">Messaging</span>
+        <span class="tool-name">WATI / Twilio</span>
+        <span class="tool-desc">WhatsApp & SMS automation</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-badge">Voice AI</span>
+        <span class="tool-name">Vapi / ElevenLabs</span>
+        <span class="tool-desc">AI voice agents</span>
+      </div>
+    </div>
+
+    <div class="tools-visual reveal reveal-delay-2">
+      <div class="tech-card">
+        <div class="tech-card-title">Our Integration Ecosystem</div>
+        <div class="tech-card-subtitle">200+ tools connected & configured</div>
+        <div class="tech-grid">
+          <div class="tech-chip">Zapier</div>
+          <div class="tech-chip">Notion</div>
+          <div class="tech-chip">Slack</div>
+          <div class="tech-chip">Stripe</div>
+          <div class="tech-chip">Calendly</div>
+          <div class="tech-chip">Typeform</div>
+          <div class="tech-chip">Shopify</div>
+          <div class="tech-chip">ActiveCamp</div>
+          <div class="tech-chip">Webflow</div>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <div class="section-label" style="margin-bottom:16px;"><span>Typical Outcomes</span></div>
+        </div>
+        <div class="roi-bar">
+          <div class="roi-label"><span>Time Saved</span><span>80%</span></div>
+          <div class="roi-track"><div class="roi-fill" style="width:80%"></div></div>
+        </div>
+        <div class="roi-bar">
+          <div class="roi-label"><span>Operational Cost Reduction</span><span>65%</span></div>
+          <div class="roi-track"><div class="roi-fill" style="width:65%"></div></div>
+        </div>
+        <div class="roi-bar">
+          <div class="roi-label"><span>Lead Response Speed</span><span>95%</span></div>
+          <div class="roi-track"><div class="roi-fill" style="width:95%"></div></div>
+        </div>
+        <div class="roi-bar">
+          <div class="roi-label"><span>Revenue Attributed to Automation</span><span>40%</span></div>
+          <div class="roi-track"><div class="roi-fill" style="width:40%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="pricing-header reveal">
+    <div class="section-label"><span>Investment</span></div>
+    <h2>Transparent
+<em>Pricing</em></h2>
+  </div>
+
+  <div class="pricing-grid reveal">
+    <div class="price-card">
+      <span class="price-tier">Starter</span>
+      <div class="price-amount">$1,500</div>
+      <div class="price-period">One-time setup + $500/mo retainer</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Automation Audit (2 workflows)</li>
+        <li>1 Core Automation Build</li>
+        <li>Tool Selection & Setup</li>
+        <li>30-Day Support</li>
+        <li class="dim">Custom AI Agents</li>
+        <li class="dim">CRM Integration</li>
+        <li class="dim">Monthly Strategy Calls</li>
+      </ul>
+      <a href="#contact" class="btn-outline">Get Started</a>
+    </div>
+    <div class="price-card featured">
+      <span class="price-tier">Growth</span>
+      <div class="price-amount">$3,500</div>
+      <div class="price-period">One-time setup + $1,200/mo retainer</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Full Operations Audit</li>
+        <li>Up to 5 Automation Builds</li>
+        <li>Custom AI Agent Deployment</li>
+        <li>CRM Setup & Integration</li>
+        <li>WhatsApp / Email Automation</li>
+        <li>Bi-weekly Strategy Calls</li>
+        <li class="dim">Dedicated Automation Manager</li>
+      </ul>
+      <a href="#contact" class="btn-outline">Most Popular</a>
+    </div>
+    <div class="price-card">
+      <span class="price-tier">Enterprise</span>
+      <div class="price-amount">Custom</div>
+      <div class="price-period">Scoped to your organization</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Unlimited Automation Builds</li>
+        <li>Dedicated Automation Manager</li>
+        <li>Full Tech Stack Overhaul</li>
+        <li>Custom AI Platform Development</li>
+        <li>Team Training & Documentation</li>
+        <li>24/7 Priority Support</li>
+        <li>Weekly Executive Reports</li>
+      </ul>
+      <a href="#contact" class="btn-outline">Book a Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal">
+    <div class="section-label"><span>Client Results</span></div>
+    <h2>Real Impact,
+<em>Real Numbers</em></h2>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">Within 60 days our entire onboarding process was automated. We went from 3 hours per client to 12 minutes. The ROI was visible in month one.</p>
+      <div class="quote-author">
+        <div class="author-avatar">NK</div>
+        <div class="author-info">
+          <strong>Nadia K.</strong>
+          <span>CEO, Nairobi Consulting Group</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">They mapped our sales process and automated follow-ups, proposals, and invoicing. Our close rate improved 40% because we stopped missing leads.</p>
+      <div class="quote-author">
+        <div class="author-avatar">JM</div>
+        <div class="author-info">
+          <strong>James M.</strong>
+          <span>Founder, Apex Real Estate</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">AI Tools Navigator doesn't just suggest tools — they build the entire system and hand it to you running. Most valuable thing I've invested in this year.</p>
+      <div class="quote-author">
+        <div class="author-avatar">SF</div>
+        <div class="author-info">
+          <strong>Sara F.</strong>
+          <span>Director of Ops, Dubai SME</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-content reveal">
+    <span class="cta-eyebrow">Ready to Automate?</span>
+    <h2>Your Business,
+<em>Running Itself</em></h2>
+    <p>Book a free 30-minute discovery call. We'll identify your top 3 automation opportunities and give you an instant ROI estimate — no obligation.</p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn-primary"><span>Book Free Discovery Call →</span></a>
+      <a href="mailto:missakirubusiness@gmail.com" class="btn-ghost">Email Us Directly</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM SECTION -->
+<section id="contact" style="background:var(--surface);border-top:1px solid var(--border);">
+  <div style="max-width:900px;margin:0 auto;text-align:center;" class="reveal">
+    <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:block;">Ready to Automate?</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1;letter-spacing:-0.02em;margin-bottom:20px;">Book Your Free <em style="font-style:italic;color:var(--gold);">Discovery Call</em></h2>
+    <p style="font-size:15px;color:var(--text-dim);font-weight:300;max-width:480px;margin:0 auto 48px;line-height:1.8;">Fill in the form below and we'll be in touch within 24 hours with your personalised automation roadmap.</p>
+
+    <div style="max-width:560px;margin:48px auto 0;text-align:left;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);" for="fname">First Name</label>
+          <input id="fname" type="text" placeholder="John" style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:14px 18px;outline:none;width:100%;">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);" for="lname">Last Name</label>
+          <input id="lname" type="text" placeholder="Smith" style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:14px 18px;outline:none;width:100%;">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);" for="email">Email Address</label>
+          <input id="email" type="email" placeholder="john@company.com" style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:14px 18px;outline:none;width:100%;">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);" for="phone">Phone / WhatsApp</label>
+          <input id="phone" type="tel" placeholder="+971 50 000 0000" style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:14px 18px;outline:none;width:100%;">
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+        <label style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);" for="company">Company Name</label>
+        <input id="company" type="text" placeholder="Your Company Ltd" style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:14px 18px;outline:none;width:100%;">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+        <label style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);" for="service">What Are You Looking to Automate?</label>
+        <select id="service" style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:14px 18px;outline:none;width:100%;">
+          <option value="" disabled selected>Select a service...</option>
+          <option>AI Workflow Architecture</option>
+          <option>Tool Selection &amp; Integration</option>
+          <option>Revenue Automation</option>
+          <option>Content &amp; Marketing AI</option>
+          <option>AI Staff Augmentation</option>
+          <option>Automation Audit &amp; Strategy</option>
+          <option>Not sure — book a discovery call</option>
+        </select>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+        <label style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);" for="message">Tell Us About Your Business</label>
+        <textarea id="message" placeholder="Briefly describe your current workflow challenges..." style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:14px 18px;outline:none;width:100%;resize:vertical;min-height:120px;"></textarea>
+      </div>
+      <button id="formBtn" onclick="submitForm()" style="width:100%;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--obsidian);background:var(--gold);border:none;padding:18px;cursor:pointer;transition:background 0.2s;">Send Message &amp; Request Discovery Call →</button>
+      <div id="formSuccess" role="status" aria-live="polite" style="display:none;background:rgba(201,168,76,0.1);border:1px solid var(--gold);padding:20px;text-align:center;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.1em;color:var(--gold);margin-top:20px;"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="text-decoration:none;">
+        <div class="logo-emblem"></div>
+        <div class="logo-text"><span>AI</span> Tools Navigator</div>
+      </div>
+      <p>Corporate automation consultancy specializing in AI integration, workflow design, and intelligent systems that let your business scale without scaling costs.</p>
+      <div class="socials">
+        <a href="#" class="social-link" aria-label="LinkedIn">LI</a>
+        <a href="#" class="social-link" aria-label="Twitter / X">TW</a>
+        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Workflow Architecture</a></li>
+        <li><a href="#services">Tool Integration</a></li>
+        <li><a href="#services">Revenue Automation</a></li>
+        <li><a href="#services">AI Agents</a></li>
+        <li><a href="#services">Automation Audit</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Company</div>
+      <ul class="footer-links">
+        <li><a href="#hero">About Us</a></li>
+        <li><a href="founder/">About the Founder</a></li>
+        <li><a href="#testimonials">Case Studies</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:missakirubusiness@gmail.com">missakirubusiness@gmail.com</a></li>
+        <li><a href="#contact">Book a Call</a></li>
+        <li><a href="#contact">WhatsApp</a></li>
+        <li><a href="#hero">Dubai, UAE</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">© 2026 <span>AI Tools Navigator</span>. All rights reserved.</div>
+    <div class="footer-legal">Privacy Policy  ·  Terms of Service</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = window.matchMedia('(hover: none)').matches;
+
+  /* ── Custom cursor (desktop, motion-allowed only) ── */
+  var cursor = document.getElementById('cursor');
+  var ring = document.getElementById('cursorRing');
+  if (!reduce && !touch) {
+    var mx = -100, my = -100, rx = -100, ry = -100;
+    window.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    }, { passive: true });
+    (function lerp() {
+      rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(lerp);
+    })();
+  } else {
+    cursor.style.display = 'none';
+    ring.style.display = 'none';
+  }
+
+  /* ── Navbar scrolled state ── */
+  var nav = document.getElementById('navbar');
+  var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 40); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Reveal on scroll ── */
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ── Contact form: graceful mailto fallback (no backend required) ── */
+  var CONTACT_EMAIL = 'missakirubusiness@gmail.com';
+  window.submitForm = function () {
+    var f = document.getElementById('fname').value.trim();
+    var l = document.getElementById('lname').value.trim();
+    var e = document.getElementById('email').value.trim();
+    var p = document.getElementById('phone').value.trim();
+    var c = document.getElementById('company').value.trim();
+    var s = document.getElementById('service').value;
+    var m = document.getElementById('message').value.trim();
+    var note = document.getElementById('formSuccess');
+
+    if (!f || (!e && !p)) {
+      note.style.display = 'block';
+      note.style.background = 'rgba(248,113,113,0.08)';
+      note.style.borderColor = 'rgba(248,113,113,0.5)';
+      note.style.color = '#fca5a5';
+      note.textContent = 'Please add your first name and an email or phone so we can reach you.';
+      return;
+    }
+
+    var body =
+      'Name: ' + f + ' ' + l + '\n' +
+      'Email: ' + e + '\n' +
+      'Phone / WhatsApp: ' + p + '\n' +
+      'Company: ' + (c || '—') + '\n' +
+      'Service: ' + (s || '—') + '\n\n' +
+      (m || '') +
+      '\n\n(Sent from the AI Tools Navigator site)';
+    var subject = 'Discovery Call Request' + (c ? ' — ' + c : '');
+
+    window.open('mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body), '_blank');
+
+    note.style.display = 'block';
+    note.style.background = '';
+    note.style.borderColor = '';
+    note.style.color = '';
+    note.textContent = '✓ Your email app is open with your message ready — hit send, and you\'ll hear back within 24 hours.';
+  };
+})();
+</script>
+</body>
+</html>
