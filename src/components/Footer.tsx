@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar, ExternalLink, Instagram, Zap, Menu, X } from "lucide-react";
+import { Calendar, ExternalLink, Instagram, Linkedin, Zap, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -89,6 +89,17 @@ const Footer = () => {
             </Button>
             
             <Button 
+              size="sm" 
+              variant="ghost"
+              asChild
+            >
+              <a href="https://ae.linkedin.com/in/missakirubusinessgroup" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-4 h-4 mr-2" />
+                LinkedIn
+              </a>
+            </Button>
+            
+            <Button 
               size="lg" 
               className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
               asChild
@@ -104,7 +115,7 @@ const Footer = () => {
               variant="hero"
               asChild
             >
-              <a href="https://calendly.com/zarathebosslady18/30min" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendly.com/missakirudubai/30min" target="_blank" rel="noopener noreferrer">
                 <Calendar className="w-4 h-4 mr-2" />
                 Book Your Call
               </a>

@@ -208,7 +208,7 @@ const BookingSection = () => {
                 {captchaVerified && (
                   <>
                     <div className="calendly-inline-widget rounded-xl overflow-hidden" 
-                         data-url="https://calendly.com/zarathebosslady18?background_color=0c0b0b&primary_color=42ec6a" 
+                         data-url="https://calendly.com/missakirudubai?background_color=0c0b0b&primary_color=42ec6a" 
                          style={{minWidth:'320px', height:'700px'}}></div>
                     
                     <div className="text-center mt-4 space-y-2">
